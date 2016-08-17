@@ -6,5 +6,6 @@ from bluesky.plan_tools import print_summary
 
 RE = RunEngine({})
 
+motor.set(50)
 print_summary(scan([det], motor, 1, 5, 5))
 # print_summary(relative_scan([det], motor, 1, 5, 5))

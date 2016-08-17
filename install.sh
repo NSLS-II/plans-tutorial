@@ -3,10 +3,9 @@
 
 # Then open a terminal / command prompt and type or paste this:
 
-conda create --name plans-demo python=3.5 ipython matplotlib
+conda create --name plans-demo python=3.5 ipython matplotlib scipy
 source activate plans-demo
-pip install mongoquery
-pip install boltons
-pip install http://github.com/NSLS-II/portable-mds/zipball/master
+pip install boltons prettytable
 pip install http://github.com/NSLS-II/event-model/zipball/v1.1.0
 pip install http://github.com/NSLS-II/bluesky/zipball/v0.6.3
+pip install http://github.com/NSLS-II/doct/zipball/v1.0.2

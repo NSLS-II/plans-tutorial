@@ -1,5 +1,8 @@
 from bluesky.examples import det1, det2
 import bluesky.plans as bp
+from bluesky import RunEngine
+
+RE = RunEngine({})
 
 dets = [det1, det2]
 
@@ -15,11 +18,13 @@ RE(bp.count(dets, num=3))
 for _ in range(3):
     RE(bp.count(dets))
 
+
 def multicount(dets):
     for _ in range(3):
         yield from bp.count(dets)
 
 RE(multicount(dets))
+
 
 def multicount(dets, num):
     "Creates a separate 'run' for each loop"
@@ -43,8 +48,7 @@ def multicount(dets, num):
 
 def multicount(dets, num):
     "Adds some metadata specific to this plan"
-    md = {'plan_name': 'multicount',
-          'num': num})
+    md = {'plan_name': 'multicount', 'num': num}
     for det in dets:
         yield from bp.stage(det)
     yield from bp.open_run(md=md)
@@ -54,7 +58,9 @@ def multicount(dets, num):
     for det in dets:
         yield from bp.unstage(det)
 
+
 from collections import ChainMap
+
 
 def multicount(dets, num, md=None):
     "Allows user to pass in custom metadata."
