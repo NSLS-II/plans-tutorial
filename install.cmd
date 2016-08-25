@@ -1,10 +1,11 @@
-# Get the Python 3.5 installer for miniconda.
-# http://conda.pydata.org/miniconda.html
+@echo off
+@rem Get the Python 3.5 installer for miniconda.
+@rem http://conda.pydata.org/miniconda.html
 
-# Then open a terminal / command prompt and type or paste this:
+@rem Then open a terminal / command prompt and type or paste this:
 
 conda create --name plans-demo python=3.5 ipython matplotlib scipy
-source activate plans-demo
+activate plans-demo
 pip install boltons prettytable
 pip install http://github.com/NSLS-II/event-model/zipball/v1.1.0
 pip install http://github.com/NSLS-II/bluesky/zipball/v0.6.3
